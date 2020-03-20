@@ -1,0 +1,85 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+if (Shop_decision==2){
+               int shop_selection;
+                cout<<"(You enter the shop.)\n\n";
+                cout<<"-Hello, traveler! Please, look through our fine selection of items.\n";
+                do {
+                    int item_amount;
+                    int confirm_purchase;
+                    cout<<"(To buy an item, write the number of the item you wish to inquire about)\n\n";
+                    cout<<"(1) Small Potion  --- 200xp\n";
+                    cout<<"(2) Long Sword    --- 800xp\n";
+                    cout<<"(3) Wooden Shield --- 350xp\n";
+                    cout<<"(Press 4 to exit the shop)\n";
+                    cout<<"You have "<<char_Xp<<" XP .\n\n";
+                    cin>>shop_selection;
+                    if (shop_selection==1){
+
+                        cout<<"How many would you like to buy? (Press 0 to go back)\n\n";
+                        cin>>item_amount;
+                        cout<<"\n\n";
+                        while ((item_amount * 200 > char_Xp)&&(item_amount!=0)){
+                            cout<<"You do not have enough Xp. Please pick a valid number, or 0 to go back\n\n";
+                            cin>>item_amount;
+                        }
+                        if (item_amount!=0){
+                            cout<<"This will cost " <<item_amount*200 <<" XP. Are you sure?\n";
+                            cout<<"(Press 1 to confirm, 2 to go back)\n";
+                            cin>>confirm_purchase;
+                            cout<<"\n\n\n";
+                            if (confirm_purchase==1){
+                                cout<<"You have bought " <<item_amount <<" Small Potion(s) for "<<item_amount*200 <<" XP.\n";
+                                char_Xp = char_Xp - (item_amount * 200);
+                                cout<<"You have " <<char_Xp <<" XP remaining.\n\n";
+                            }
+                        }
+                }
+                if((shop_selection==2)&&(longsword==true)){
+                    cout<<"You already own this item\n\n";
+                } else if (shop_selection==2){
+                    if (char_Xp>=800){
+                        cout<<"This will cost 800 xp. Are you sure?\n";
+                        cout<<"(Press 1 to confirm, 2 to go back)\n";
+                        cin>>confirm_purchase;
+                        cout<<"\n\n\n";
+                        if (confirm_purchase==1){
+                        cout<<"You have bought a Long Sword for 800 xp.\n";
+                        cout<<"Attack increased by 3!\n";
+                        char_att = char_att + 3;
+                        char_Xp = char_Xp - 800;
+                        longsword = true;
+                        cout<<"You have " <<char_Xp <<" XP remaining.\n";
+                    }
+                  }else{
+                      cout<<"You do not have enough Xp.\n\n";
+                  }
+                }
+                 if((wooden_shield==true)&&(shop_selection==3)){
+                     cout<<"You already own this item\n\n";
+                } else if (shop_selection==3){
+                    if (char_Xp>=350){
+                        cout<<"This will cost 350 Xp. Are you sure?\n";
+                        cout<<"(Press 1 to confirm, 2 to go back)\n";
+                        cin>>confirm_purchase;
+                        cout<<"\n\n\n";
+                        if (confirm_purchase==1){
+                            cout<<"You have bought a Wooden Shield for 350 Xp.\n";
+                            
+                            }
+                            wooden_shield= true;
+                            char_Xp = char_Xp - 350;
+                            cout<<"You have " <<char_Xp <<" Xp remaining.\n";
+                        }
+                    }else{
+                        cout<<"You do not have Xp.\n\n";
+                    }
+                }
+
+
+                 // Created by Khan Stewart on 25/02/2020.
+
+
